@@ -1,13 +1,12 @@
 # coding: UTF-8
 
-import datetime
 import os
 import random
 import logging
 from vkbottle.bot import Bot, Message
 
 
-bot = Bot(os.environ.get["TOKEN"])
+bot = Bot(os.environ["TOKEN"])
 logging.basicConfig(level=logging.INFO)
 
 
