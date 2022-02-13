@@ -25,12 +25,12 @@ async def start(m: Message):
     ]
 )
 async def lol(m: Message):
-    await m.answer(f"Ваша совместимость «{random.randint(1, 100)}%»")
+    await m.answer(f"Ваша совместимость «{random.randint(30, 100)}%»")
 
 
 @bot.on.private_message(text=["когда я <some_text>", "Когда я <some_text>"])
 async def rand_date(m: Message):
-    year = random.randint(2022, 2100)
+    year = random.randint(2022, 2075)
     if year == 2022:
         month = random.randint(3, 12)
     month = random.randint(1, 12)
