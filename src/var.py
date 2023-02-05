@@ -1,61 +1,4 @@
-# coding: UTF-8
-
-import os
-import random
-import logging
-from vkbottle.bot import Bot, Message
-
-
-bot = Bot(os.environ["TOKEN"])
-logging.basicConfig(level=logging.INFO)
-
-
-@bot.on.private_message(text=["Начать", "начать"])
-async def start(m: Message):
-    await m.answer(
-        "Приветствую! Я бот от команды [https://vk.com/orgcomsut|ORG.COM].\nСмотри, что я умею делать:\n1. Введите «хочу предсказание» и я отправлю твоё предсказание на ближайший месяц и ты узнаешь, что ждёт тебя в личной жизни!\n2. Введите «совместимость *имя* и *имя*», чтобы узнать на сколько ты и твоя вторая половинка подходите друг другу; ❤\n3. Введите «когда я...», чтобы узнать точную дату когда это произойдёт.\n\nСкорее присылай мне команды и я уверен, что некоторые вещи тебя приятно удивят!\n\nЛюбите и будьте добрее к друг другу. ❤",
-        dont_parse_links=True,
-    )
-
-
-@bot.on.private_message(
-    text=[
-        "совместимость <first_name> и <second_name>",
-        "Совместимость <first_name> и <second_name>",
-    ]
-)
-async def lol(m: Message):
-    await m.answer(f"Ваша совместимость «{random.randint(30, 100)}%»")
-
-
-@bot.on.private_message(text=["когда я <some_text>", "Когда я <some_text>"])
-async def rand_date(m: Message):
-    year = random.randint(2022, 2075)
-    if year == 2022:
-        month = random.randint(3, 12)
-    month = random.randint(1, 12)
-    day = random.randint(1, 31)
-    months = {
-        1: "Января",
-        2: "Февраля",
-        3: "Марта",
-        4: "Апреля",
-        5: "Мая",
-        6: "Июня",
-        7: "Июля",
-        8: "Августа",
-        9: "Сентября",
-        10: "Октября",
-        11: "Ноября",
-        12: "Декабря",
-    }
-
-    await m.answer(f"Это произойдёт «{day} {months[month]} {year}»")
-
-
-@bot.on.private_message(text=["хочу предсказание", "Хочу предсказание"])
-async def predict(m: Message):
-    predictions = [
+predictions = [
         "Лучше сделать и пожалеть о сделанном, чем не сделать и сожалеть о несделанном!",
         "Что бы сейчас не происходило в твоей личной жизни, в конечном итоге все приведет к лучшему!",
         "Все что ты можешь представить у себя в голове — реально реализовать!",
@@ -106,9 +49,19 @@ async def predict(m: Message):
         "Борьба всегда оправдана, если знаешь к чему стремишься.",
         "Если чувствуешь, что это твое, никого не слушай — рискни!",
         "Каждый день — чистая страница жизни! Напиши ее красивым почерком.",
-    ]
-    await m.answer(random.choice(predictions))
+]
 
-
-if __name__ == "__main__":
-    bot.run_forever()
+months = {
+        1: "Января",
+        2: "Февраля",
+        3: "Марта",
+        4: "Апреля",
+        5: "Мая",
+        6: "Июня",
+        7: "Июля",
+        8: "Августа",
+        9: "Сентября",
+        10: "Октября",
+        11: "Ноября",
+        12: "Декабря",
+    }
