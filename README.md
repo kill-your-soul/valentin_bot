@@ -81,3 +81,17 @@ SPbGUT Valentine bot
             ```shell
             export TOKEN="TOKEN_TO_YOUR_BOT"
             ```
+
+6. Run bot
+
+    - For Windows:
+
+        ```shell
+        python .\src\main.py
+        ```
+
+    - For Linux, MacOS:
+    
+        ```shell
+        python3 ./src/main.py
+        ```
