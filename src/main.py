@@ -27,7 +27,7 @@ async def start(m: Message):
     ]
 )
 async def lol(m: Message):
-    await m.answer(f"Ваша совместимость «{random.randint(30, 100)}%»")
+    await m.answer(f"Ваша совместимость «{random.randint(0, 100)}%»")
 
 
 @bot.on.private_message(text=["когда я <some_text>", "Когда я <some_text>"])
