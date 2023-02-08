@@ -32,10 +32,11 @@ async def lol(m: Message):
 
 @bot.on.private_message(text=["когда я <some_text>", "Когда я <some_text>"])
 async def rand_date(m: Message):
-    year = random.randint(2022, 2075)
-    if year == 2022:
+    year = random.randint(2023, 2075)
+    if year == 2023:
         month = random.randint(3, 12)
-    month = random.randint(1, 12)
+    else:
+        month = random.randint(1, 12)
     day = random.randint(1, 31)
     await m.answer(f"Это произойдёт «{day} {months[month]} {year}»")
 
