@@ -46,5 +46,10 @@ async def predict(m: Message):
     await m.answer(random.choice(predictions))
 
 
+@bot.on.private_message()
+async def other(m: Message):
+    await m.answer("Я не знаю такой команды, попробуйте ещё раз.")
+
+
 if __name__ == "__main__":
     bot.run_forever()
